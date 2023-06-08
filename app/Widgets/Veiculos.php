@@ -23,15 +23,15 @@ class Veiculos extends BaseDimmer
      */
     public function run()
     {
-        //$count = Veiculo::count();
-        //$string = trans_choice('voyager::dimmer.user', $count);
+        $count = Veiculo::count();
+        $string = 'Veiculos';//trans_choice('voyager::dimmer.user', $count);
 
         return view('voyager::dimmer', array_merge($this->config, [
             'icon'   => 'voyager-truck',
-            'title'  => " Veja os veiculos",
-            'text'   => 'HOHHI',
+            'title'  => "{$count} {$string}",
+            'text'   => "Você tem {$count} veículos em seu banco de dados. Clique no botão abaixo para ver todos os veiculos",
             'button' => [
-                'text' => 'Go',
+                'text' => 'Ver',
                 'link' => route('voyager.veiculos.index'),
             ],
             'image' => voyager_asset('images/widget-backgrounds/01.jpg'),
