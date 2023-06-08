@@ -6,9 +6,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use TCG\Voyager\Facades\Voyager;
 use TCG\Voyager\Widgets\BaseDimmer;
-use App\Models\Veiculo;
+use App\Models\EnsaioMetrologico;
 
-class Veiculos extends BaseDimmer
+class EnsaiosMetrologicos extends BaseDimmer
 {
     /**
      * The configuration array.
@@ -23,18 +23,18 @@ class Veiculos extends BaseDimmer
      */
     public function run()
     {
-        $count = Veiculo::count();
-        $string = 'Veiculos';//trans_choice('voyager::dimmer.user', $count);
+        $count = EnsaioMetrologico::count();
+        $string = 'Ensaios Metrológico';//trans_choice('voyager::dimmer.user', $count);
 
         return view('voyager::dimmer', array_merge($this->config, [
-            'icon'   => 'voyager-truck',
+            'icon'   => 'voyager-tools',
             'title'  => "{$count} {$string}",
-            'text'   => "Você tem {$count} veículos em seu banco de dados. Clique no botão abaixo para ver todos os veiculos",
+            'text'   => "Você tem {$count} ensaios em seu banco de dados. Clique no botão abaixo para ver todos os ensaios",
             'button' => [
                 'text' => 'Ver',
-                'link' => route('voyager.veiculos.index'),
+                'link' => route('voyager.ensaios-metrologicos.index'),
             ],
-            'image' => asset('storage/widgets/caminhao.jpg'),
+            'image' => asset('storage/widgets/pista_de_ensaio.jpg'),
         ]));
     }
 
