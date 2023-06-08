@@ -26,5 +26,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Voyager::addAction(\App\Actions\Voyager\BotaoGerarCRLV::class);
+        Voyager::addAction(\App\Actions\Voyager\BotaoGerarMuitosCRLV::class);
     }
 }

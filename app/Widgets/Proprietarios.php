@@ -45,6 +45,6 @@ class Proprietarios extends BaseDimmer
      */
     public function shouldBeDisplayed()
     {
-        return Auth::user()->can('browse', Voyager::model('User'));
+        return Auth::user()->can('browse', new Proprietario());
     }
 }
